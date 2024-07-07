@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path');
 
 const app = express();
 
@@ -17,6 +18,9 @@ const bidangKewenanganRoute = require('./routes/bidangKewenangans');
 const uploader = require('./routes/uploader');
 
 app.use(bodyParser.json());
+
+app.use('/landasanHukum', express.static('filesUpload/landasanHukum'))
+
 app.use("/user", userRoute);
 app.use("/dataPenduduk", dataPendudukRoute);
 app.use("/dusun", dusunRoute);

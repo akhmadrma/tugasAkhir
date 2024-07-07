@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
     cb(null, "./filesUpload/landasanHukum");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname +path.extname(file.originalname));
+    cb(null, file.originalname);
   },
 });
 
@@ -20,7 +20,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({
   storage: storage,
-  //   fileFilter: fileFilter,
+  fileFilter: fileFilter,
 });
 
 module.exports = {
