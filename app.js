@@ -12,6 +12,9 @@ const saranaPrasaranaRoute = require("./routes/saranaPrasaranas");
 const lembagaDesaRoute = require("./routes/lembagadesas");
 const kepengurusanLembagaDesaRoute = require('./routes/kepengurusanLembagaDesas');
 const kegiatanLembagaDesaRoute = require('./routes/kegiatanLembagaDesas');
+const kewenganganDesaRoute = require('./routes/kewenanganDesas');
+const bidangKewenanganRoute = require('./routes/bidangKewenangans');
+const uploader = require('./routes/uploader');
 
 app.use(bodyParser.json());
 app.use("/user", userRoute);
@@ -23,5 +26,8 @@ app.use("/saranaPrasarana", saranaPrasaranaRoute);
 app.use("/lembagaDesa", lembagaDesaRoute);
 app.use("/kepengurusanLembagaDesa", kepengurusanLembagaDesaRoute);
 app.use("/kegiatanLembagaDesa",kegiatanLembagaDesaRoute)
+app.use ("/kewenanganDesa",kewenganganDesaRoute)
+app.use ('/bidangKewenangan',bidangKewenanganRoute)
+app.use ('/uploader',uploader)
 
 module.exports = app;
