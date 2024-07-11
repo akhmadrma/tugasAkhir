@@ -21,12 +21,16 @@ const aparaturDesaRoute = require("./routes/aparaturdesas");
 const penghasilanAparaturRoute = require('./routes/penghasilanAparaturs');
 const peristiwaKeamananRoute = require('./routes/peristiwaKeamanans');
 const peristiwaBencanaRoute = require('./routes/peristiwaBencanas');
+const pendapatanDesaRoute = require('./routes/pendapatanDesas')
+const belanjaDesaRoute = require('./routes/belanjadesas')
+const pembiayaanDesaRoute = require('./routes/pembiayaanDesas');
 
 const uploader = require("./routes/uploader");
 
 app.use(bodyParser.json());
 
 app.use("/landasanHukum", express.static("filesUpload/landasanHukum"));
+app.use("/buktiTransaksi", express.static("filesUpload/buktiTransaksi"));
 
 app.use("/user", userRoute);
 app.use("/dataPenduduk", dataPendudukRoute);
@@ -45,6 +49,10 @@ app.use("/aparaturDesa",aparaturDesaRoute);
 app.use('/penghasilanAparatur',penghasilanAparaturRoute)
 app.use('/peristiwaKeamanan',peristiwaKeamananRoute)
 app.use("/peristiwaBencana", peristiwaBencanaRoute);
+app.use("/pendapatanDesa",pendapatanDesaRoute)
+app.use("/belanjaDesa", belanjaDesaRoute);
+app.use ("/pembiayaanDesa",pembiayaanDesaRoute)
+
 
 app.use("/uploader", uploader);
 

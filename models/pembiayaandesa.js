@@ -3,6 +3,8 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
+  const JenisPembiayaanDesa = sequelize.define("JenisPembiayaanDesa");
+  const KategoriPembiayaanDesa = sequelize.define("KategoriPembiayaanDesa");
   class PembiayaanDesa extends Model {
     /**
      * Helper method for defining associations.
@@ -10,7 +12,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      PembiayaanDesa.belongsTo(JenisPembiayaanDesa,{
+        as : "JenisPembiayaan",
+        foreignKey : "jenisPembiayaanDesa_id"
+      })
+      PembiayaanDesa.belongsTo(KategoriPembiayaanDesa,{
+        as : "KategoriPembiayaan",
+        foreignKey : "kategoriPembiayaanDesa_id"
+      })
     }
   }
   PembiayaanDesa.init({
