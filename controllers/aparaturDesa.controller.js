@@ -28,7 +28,7 @@ function save(req, res) {
     models.AparaturDesa.create(bodyContent)
       .then((result) => {
         res.status(201).json({
-          message: "Dusun created succesfully",
+          message: "Data created succesfully",
           data: result,
         });
       })
