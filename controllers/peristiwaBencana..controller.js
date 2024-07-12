@@ -59,6 +59,7 @@ function save(req, res) {
       });
     });
 }
+
 function shows(req, res) {
   models.PeristiwaBencana.findAll()
     .then((result) => {
