@@ -24,6 +24,8 @@ const peristiwaBencanaRoute = require('./routes/peristiwaBencanas');
 const pendapatanDesaRoute = require('./routes/pendapatanDesas')
 const belanjaDesaRoute = require('./routes/belanjadesas')
 const pembiayaanDesaRoute = require('./routes/pembiayaanDesas');
+const geografiDesaRoute = require("./routes/geografiDesas");
+const sumberDayaAlamDesaRoute = require("./routes/sumberDayaAlamDesas");
 
 const uploader = require("./routes/uploader");
 
@@ -52,6 +54,8 @@ app.use("/peristiwaBencana", peristiwaBencanaRoute);
 app.use("/pendapatanDesa",pendapatanDesaRoute)
 app.use("/belanjaDesa", belanjaDesaRoute);
 app.use ("/pembiayaanDesa",pembiayaanDesaRoute)
+app.use("/geografiDesa", geografiDesaRoute);
+app.use("/sumberDayaAlamDesa", sumberDayaAlamDesaRoute);
 
 
 app.use("/uploader", uploader);
