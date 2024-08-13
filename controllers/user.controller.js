@@ -2,8 +2,7 @@ const models = require("../models");
 const bcryptjs = require("bcryptjs");
 const jsonwebtoken = require("jsonwebtoken");
 const validator = require("fastest-validator");
-const { where } = require("sequelize");
-const { json } = require("body-parser");
+require("dotenv").config();
 
 //fungsi sign-up
 function signUp(req, res) {
@@ -81,11 +80,12 @@ function login(req, res) {
   };
 
   //mencari username
-  models.User.findOne({ where: {userName:userBody.userName} })
+  models.User.findOne({ where: { userName: userBody.userName } })
     .then((user) => {
-      if (user === null) { //jika username tidak ditemukan
+      if (user === null) {
+        //jika username tidak ditemukan
         res.status(401).json({
-          message: "userName or password incorrect", 
+          message: "userName or password incorrect",
         });
       } else {
         bcryptjs.compare(
@@ -93,13 +93,14 @@ function login(req, res) {
           user.password,
           function (err, result) {
             if (result) {
-                //generate jwt
+              //generate jwt
               jsonwebtoken.sign(
                 {
                   userName: user.userName,
                   userId: user.userId,
                 },
-                "secret code",
+                process.env.JWT_Key,
+                { expiresIn: 60 },
                 function (err, token) {
                   res.status(200).json({
                     message: "autentication succes",
@@ -108,7 +109,7 @@ function login(req, res) {
                 }
               );
             } else {
-                //if password !== password
+              //if password !== password
               res.status(401).json({
                 message: "Incorect password",
               });
@@ -124,7 +125,6 @@ function login(req, res) {
       });
     });
 }
-
 
 module.exports = {
   signUp: signUp,

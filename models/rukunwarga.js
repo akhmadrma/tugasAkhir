@@ -4,6 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const dataPenduduk = sequelize.define("data_penduduk");
+    const Dusun = sequelize.define("Dusun");
   class RukunWarga extends Model {
     /**
      * Helper method for defining associations.
@@ -19,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         as:"wargaRukunWarga",
         foreignKey : "rukunWarga_id"
       })
+      RukunWarga.belongsTo(Dusun, {
+        as: "alamatDusun",
+        foreignKey: "dusun_id",
+      });
+      
     }
   }
   RukunWarga.init({

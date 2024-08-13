@@ -37,15 +37,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "status_id",
       });
       data_penduduk.belongsTo(Dusun, {
-        as: "wargaDusun",
+        as: "alamatDusun",
         foreignKey: "dusun_id",
       });
       data_penduduk.belongsTo(RukunWarga,{
-        as : "wargaRukunWarga",
+        as : "alamatRukunWarga",
         foreignKey : "rukunWarga_id"
       })
       data_penduduk.belongsTo(RukunTetangga, {
-        as: "wargaRukunTetangga",
+        as: "alamatRukunTetangga",
         foreignKey: "rukunTetangga_id",
       });
       data_penduduk.hasOne(Dusun, {

@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
         as: "KegiatanLembaga",
         foreignKey: "lembagaDesa_id",
       });
-      LembagaDesa.hasOne(PengelolaanDanaLembagaDesa,{
-        as:"DanaLembaga",
-        foreignKey : "lembagaDesa_id"
-      })
     }
   }
   LembagaDesa.init(

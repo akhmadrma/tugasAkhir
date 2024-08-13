@@ -4,10 +4,14 @@ const aparaturDesaController = require("../controllers/aparaturDesa.controller")
 
 const router = express.Router();
 
-router.get("/", aparaturDesaController.shows);
-router.get("/:id", aparaturDesaController.show);
-router.post("/", aparaturDesaController.save);
-router.delete("/:id", aparaturDesaController.destroy);
-router.patch("/:id", aparaturDesaController.update);
+router.get("/",checkAtuthMiddleware.checkAuth, aparaturDesaController.shows);
+router.get("/:id", checkAtuthMiddleware.checkAuth, aparaturDesaController.show);
+router.post("/",checkAtuthMiddleware.checkAuth, aparaturDesaController.save);
+router.delete("/:id",checkAtuthMiddleware.checkAuth, aparaturDesaController.destroy);
+router.patch(
+  "/:id",
+  checkAtuthMiddleware.checkAuth,
+  aparaturDesaController.update
+);
 
 module.exports = router;
