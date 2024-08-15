@@ -254,10 +254,21 @@ function update(req, res) {
     });
 }
 
+function showsJenisPenghasilanAparatur(req, res) {
+  models.JenisPenghasilanAparatur.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   shows: shows,
   show: show,
   destroy: destroy,
   update: update,
+  JenisPenghasilanAparatur : showsJenisPenghasilanAparatur
 };

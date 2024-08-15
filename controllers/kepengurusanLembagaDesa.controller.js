@@ -240,10 +240,21 @@ function update(req, res) {
     });
 }
 
+function showsKategoriJabatanLembagaDesa(req, res) {
+  models.KategoriJabatanLembagaDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   show: show,
   shows: shows,
   destroy: destroy,
   update: update,
+  showsKategoriJabatanLembagaDesa,
 };

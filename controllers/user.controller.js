@@ -100,7 +100,7 @@ function login(req, res) {
                   userId: user.userId,
                 },
                 process.env.JWT_Key,
-                { expiresIn: 60 },
+                // { expiresIn: 60 },
                 function (err, token) {
                   res.status(200).json({
                     message: "autentication succes",

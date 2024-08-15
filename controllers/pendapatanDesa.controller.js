@@ -213,6 +213,25 @@ function update(req, res) {
       });
     });
 }
+function showsKategoriPendapatanDesa(req, res) {
+  models.KategoriPendapatanDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsSumberPendapatanDesa(req, res) {
+  models.SumberPendapatanDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
 
 module.exports = {
   save: save,
@@ -220,4 +239,6 @@ module.exports = {
   show: show,
   destroy: destroy,
   update: update,
+  KategoriPendapatanDesa : showsKategoriPendapatanDesa,
+  SumberPendapatanDesa : showsSumberPendapatanDesa
 };

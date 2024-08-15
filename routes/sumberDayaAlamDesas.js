@@ -10,4 +10,9 @@ router.post("/", sumberDayaAlamDesaController.save);
 router.delete("/:id", sumberDayaAlamDesaController.destroy);
 router.patch("/:id", sumberDayaAlamDesaController.update);
 
+router.get(
+  "/v/KategoriSumberDayaAlamDesa",
+  sumberDayaAlamDesaController.KategoriSumberDayaAlamDesa
+);
+
 module.exports = router;

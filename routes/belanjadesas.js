@@ -10,4 +10,6 @@ router.post("/", belanjaDesaController.save);
 router.delete("/:id", belanjaDesaController.destroy);
 router.patch("/:id", belanjaDesaController.update);
 
+router.get("/v/JenisBelanjaDesa", belanjaDesaController.JenisBelanjaDesa);
+router.get("/v/KategoriBelanjaDesa", belanjaDesaController.KategoriBelanjaDesa);
 module.exports = router;

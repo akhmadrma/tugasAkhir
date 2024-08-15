@@ -10,4 +10,9 @@ router.post("/", peristiwaBencanaController.save);
 router.delete("/:id", peristiwaBencanaController.destroy);
 router.patch("/:id", peristiwaBencanaController.update);
 
+
+router.get(
+  "/v/KategoriPeristiwaBencana",
+  peristiwaBencanaController.KategoriPeristiwaBencana
+);
 module.exports = router;

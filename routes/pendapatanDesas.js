@@ -11,4 +11,14 @@ router.post("/", pendapatanDesaController.save);
 router.delete("/:id", pendapatanDesaController.destroy);
 router.patch("/:id", pendapatanDesaController.update);
 
+
+
+router.get(
+  "/v/SumberPendapatanDesa",
+  pendapatanDesaController.SumberPendapatanDesa
+);
+router.get(
+  "/v/KategoriPendapatanDesa",
+  pendapatanDesaController.KategoriPendapatanDesa
+);
 module.exports = router;

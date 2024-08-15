@@ -10,4 +10,9 @@ router.post("/", kepengurusanLembagaDesaController.save);
 router.delete("/:id", kepengurusanLembagaDesaController.destroy);
 router.patch("/:id", kepengurusanLembagaDesaController.update);
 
+router.get(
+  "/v/KategoriJabatanLembagaDesa",
+  kepengurusanLembagaDesaController.showsKategoriJabatanLembagaDesa
+);
+
 module.exports = router;

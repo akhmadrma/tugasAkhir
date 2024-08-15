@@ -161,10 +161,20 @@ function update(req, res) {
       });
     });
 }
+function showsKategoriPeristiwaBencana(req, res) {
+  models.KategoriPeristiwaBencana.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
 module.exports = {
   save: save,
   show: show,
   shows: shows,
   update: update,
   destroy: destroy,
+  KategoriPeristiwaBencana : showsKategoriPeristiwaBencana
 };

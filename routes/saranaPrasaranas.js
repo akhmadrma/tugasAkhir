@@ -10,6 +10,9 @@ router.post("/",saranaPrasaranaController.save)
 router.delete("/:id",saranaPrasaranaController.destroy)
 router.patch("/:id",saranaPrasaranaController.update)
 
+router.get("/v/JenisSarpras", saranaPrasaranaController.showsKategoriSarpras);
+router.get("/v/KondisiSarpras", saranaPrasaranaController.showsKondisiSarpras);
+
 
 
 module.exports = router;

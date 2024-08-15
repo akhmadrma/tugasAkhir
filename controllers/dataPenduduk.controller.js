@@ -335,10 +335,70 @@ function destroy(req, res) {
     });
 }
 
+function showsJenisKelamin(req, res) {
+  models.JenisKelamin
+    .findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsPendidikanTerakhir(req, res) {
+  models.PendidikanTerakhir
+    .findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsAgama(req, res) {
+  models.Agama
+    .findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsShdk(req, res) {
+  models.SHDK
+    .findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsStatus(req, res) {
+  models.Status
+    .findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   show: show,
   shows: shows,
   update: update,
   destroy: destroy,
+  showsAgama : showsAgama,
+  showsJenisKelamin : showsJenisKelamin,
+  showsPendidikanTerakhir: showsPendidikanTerakhir,
+  showsShdk:showsShdk,
+  showsStatus:showsStatus
 };

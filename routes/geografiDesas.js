@@ -9,5 +9,8 @@ router.get("/:id", geografiDesaController.show);
 router.post("/", geografiDesaController.save);
 router.delete("/:id", geografiDesaController.destroy);
 router.patch("/:id", geografiDesaController.update);
-
+router.get(
+  "/v/KategoriGeografiDesa",
+  geografiDesaController.KategoriGeografiDesa
+);
 module.exports = router;

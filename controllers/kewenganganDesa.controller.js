@@ -202,10 +202,21 @@ function update(req, res) {
     });
 }
 
+function showsKategoriKewenangan(req, res) {
+  models.KategoriKewenangan.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   shows: shows,
   show: show,
   update: update,
   destroy: destroy,
+  KategoriKewenangan : showsKategoriKewenangan
 };

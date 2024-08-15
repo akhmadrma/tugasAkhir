@@ -10,4 +10,9 @@ router.post("/", penghasilanAparaturController.save);
 router.delete("/:id", penghasilanAparaturController.destroy);
 router.patch("/:id", penghasilanAparaturController.update);
 
+router.get(
+  "/v/JenisPenghasilanAparatur",
+  penghasilanAparaturController.JenisPenghasilanAparatur
+);
+
 module.exports = router;

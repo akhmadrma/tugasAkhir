@@ -211,10 +211,31 @@ function update(req, res) {
     });
 }
 
+function showsKategoriPembiayaanDesa(req, res) {
+  models.KategoriPembiayaanDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+function showsJenisPembiayaanDesa(req, res) {
+  models.JenisPembiayaanDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   shows: shows,
   show: show,
   destroy: destroy,
   update: update,
+  JenisPembiayaanDesa: showsJenisPembiayaanDesa,
+  KategoriPembiayaanDesa : showsKategoriPembiayaanDesa,
 };

@@ -208,10 +208,31 @@ function update(req, res) {
     });
 }
 
+function showsKategoriBelanjaDesa(req, res) {
+  models.KategoriBelanjaDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+function showsJenisBelanjaDesa(req, res) {
+  models.JenisBelanjaDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   shows: shows,
   show: show,
   destroy: destroy,
   update: update,
+  JenisBelanjaDesa: showsJenisBelanjaDesa,
+  KategoriBelanjaDesa: showsKategoriBelanjaDesa,
 };

@@ -188,10 +188,31 @@ function update(req, res) {
     });
 }
 
+function showsKondisiSarpras(req, res) {
+  models.KondisiSarpras.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
+function showsKategoriSarpras(req, res) {
+  models.KategoriSarpras.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
 module.exports = {
   save: save,
   shows: shows,
   show: show,
-  destroy : destroy,
-  update : update,
+  destroy: destroy,
+  update: update,
+  showsKategoriSarpras: showsKategoriSarpras,
+  showsKondisiSarpras: showsKondisiSarpras,
 };

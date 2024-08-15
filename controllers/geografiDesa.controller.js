@@ -3,14 +3,14 @@ const validator = require("fastest-validator");
 
 function save(req, res) {
   const bodyContent = {
-    kategoriGeografiDesa_id : req.body.kategoriGeografiDesa_id,
-    value : req.body.value,
-    keterangan : req.body.keterangan
+    kategoriGeografiDesa_id: req.body.kategoriGeografiDesa_id,
+    value: req.body.value,
+    keterangan: req.body.keterangan,
   };
 
   const schema = {
     kategoriGeografiDesa_id: { type: "number", optional: false },
-    value: { type: "string", optional: false, },
+    value: { type: "string", optional: false },
     keterangan: { type: "string", optional: true },
   };
 
@@ -39,9 +39,7 @@ function save(req, res) {
       });
   }
 
-  models.KategoriGeografiDesa.findByPk(
-    bodyContent.kategoriGeografiDesa_id
-  )
+  models.KategoriGeografiDesa.findByPk(bodyContent.kategoriGeografiDesa_id)
     .then((result) => {
       if (result !== null) {
         post();
@@ -142,9 +140,7 @@ function update(req, res) {
       });
   }
 
-  models.KategoriGeografiDesa.findByPk(
-    bodyContent.kategoriGeografiDesa_id
-  )
+  models.KategoriGeografiDesa.findByPk(bodyContent.kategoriGeografiDesa_id)
     .then((result) => {
       if (result !== null) {
         postUpdate();
@@ -162,10 +158,21 @@ function update(req, res) {
     });
 }
 
+function showsKategoriGeografiDesa(req, res) {
+  models.KategoriGeografiDesa.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   save: save,
   show: show,
   shows: shows,
   update: update,
   destroy: destroy,
+  KategoriGeografiDesa: showsKategoriGeografiDesa,
 };

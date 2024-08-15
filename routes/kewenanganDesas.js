@@ -10,4 +10,5 @@ router.post("/", kewenanganDesaController.save);
 router.delete("/:id", kewenanganDesaController.destroy);
 router.patch("/:id", kewenanganDesaController.update);
 
+router.get("/v/KategoriKewenangan", kewenanganDesaController.KategoriKewenangan);
 module.exports = router;

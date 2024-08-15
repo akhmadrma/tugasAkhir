@@ -10,4 +10,13 @@ router.post("/", pembiayaanDesaController.save);
 router.delete("/:id", pembiayaanDesaController.destroy);
 router.patch("/:id", pembiayaanDesaController.update);
 
+router.get(
+  "/v/KategoriPembiayaanDesa",
+  pembiayaanDesaController.KategoriPembiayaanDesa
+);
+router.get(
+  "/v/JenisPembiayaanDesa",
+  pembiayaanDesaController.JenisPembiayaanDesa
+);
+
 module.exports = router;

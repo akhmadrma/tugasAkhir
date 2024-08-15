@@ -160,10 +160,21 @@ function update(req, res) {
       });
     });
 }
+
+function showsKategoriPeristiwaKeamanan(req, res) {
+  models.KategoriPeristiwaKeamanan.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+}
 module.exports = {
   save: save,
   show: show,
   shows: shows,
   update: update,
   destroy: destroy,
+  KategoriPeristiwaKeamanan : showsKategoriPeristiwaKeamanan
 };
